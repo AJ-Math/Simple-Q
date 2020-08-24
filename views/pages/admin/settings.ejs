@@ -1,0 +1,60 @@
+
+<v-container class="mt-15">
+
+	<v-row>
+		<p class="text-h4 mt-5">Settings</p>
+	</v-row>
+	<v-row>
+		<v-col cols="4">
+			<v-card class="mx-auto">
+				<v-toolbar color="blue" dark>
+					<v-toolbar-title>Change Username</v-toolbar-title>
+				</v-toolbar>
+				<v-form v-model="unameForm" class="pa-4">
+					<p class="subtitle-2 font-weight-regular">
+						Current Username: <b><span id='uname'><%= adminUname %></span></b>
+					</p>
+					<v-text-field label='New Username' v-model='uname' :rules='rules.uname'
+						required></v-text-field>
+					<v-alert type="error" class="ma-2" v-model="unameError" dismissible>
+						Failed to update
+					</v-alert>
+					<v-alert type="success" class="ma-2" v-model="unameSuccess" dismissible>
+						Successfully updated
+					</v-alert>
+					<v-card-actions>
+						<v-btn color="primary" @click.stop="updateUname()"
+							:disabled="!unameForm" :loading="unameLoading">Update</v-btn>
+					</v-card-actions>
+				</v-form>
+			</v-card>
+		</v-col>
+		<v-col cols="1"></v-col>
+		<v-col cols="4">
+			<v-card class="mx-auto">
+				<v-toolbar color="blue" dark>
+					<v-toolbar-title>Change Password</v-toolbar-title>
+				</v-toolbar>
+				<v-form v-model="passForm" class="pa-4">
+					<v-text-field label='Current Password' v-model='cpass' :rules='rules.pass'
+						required type='password'></v-text-field>
+					<v-text-field label='New Password' v-model='npass' :rules='rules.pass'
+						required type='password'></v-text-field>
+					<v-text-field label='Repeat New Password' v-model='rnpass' :rules='rules.rpass'
+						required type='password'></v-text-field>
+					<v-alert type="error" class="ma-2" v-model="passError" dismissible>
+						Failed to update
+					</v-alert>
+					<v-alert type="success" class="ma-2" v-model="passSuccess" dismissible>
+						Successfully updated
+					</v-alert>
+					<v-card-actions>
+						<v-btn color="primary" @click.stop="updatePass()"
+							:disabled="!passForm" :loading="passLoading">Update</v-btn>
+					</v-card-actions>
+				</v-form>
+			</v-card>
+		</v-col>
+	</v-row>
+
+</v-container>

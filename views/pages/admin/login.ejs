@@ -1,0 +1,41 @@
+<div id="app">
+<template>
+	<v-app id="inspire">
+
+	<v-container>
+		<v-row>
+			<v-col cols="12">
+				<v-row align='center' justify='center'>
+
+					<!-- HOMEPAGE SECTION -->
+					<v-card class="mx-auto" min-width="300">
+					<v-form v-model="adminForm">
+						<v-toolbar dark color='blue' flat>
+							<v-icon class='mr-3'>mdi-account</v-icon>
+							<v-toolbar-title>Simple Q Admin</v-toolbar-title>
+						</v-toolbar>
+						<v-flex class='pa-4'>
+							<v-text-field label='Username' v-model='uname' :rules='rules.uname'
+								required></v-text-field>
+							<v-text-field label='Password' v-model='pass' :rules='rules.pass'
+								required type='password'></v-text-field>
+						</v-flex>
+						<v-alert type="error" class="ma-2" v-model="adminError" dismissible>
+							Failed to login
+						</v-alert>
+						<v-card-actions>
+							<v-btn color="primary" @click.stop="login()"
+								:disabled="!adminForm" :loading="loginLoading">Login</v-btn>
+						</v-card-actions>
+					</v-form>
+					</v-card>
+					<!-- HOMEPAGE SECTION -->
+				</v-row>
+			</v-col>
+		</v-row>
+
+	</v-container>
+
+	</v-app>
+</template>
+</div>

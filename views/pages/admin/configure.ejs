@@ -1,0 +1,31 @@
+
+<v-container class="mt-15">
+
+	<v-row>
+		<p class="text-h4 mt-5">Settings</p>
+	</v-row>
+	<v-row>
+		<v-col cols="5">
+			<v-card class="mx-auto">
+				<v-toolbar color="blue" dark>
+					<v-toolbar-title>Configure</v-toolbar-title>
+				</v-toolbar>
+				<v-form v-model="confForm" class="pa-4">
+					<v-text-field label='New Username' v-model='uname' :rules='rules.uname'
+						required></v-text-field>
+					<v-alert type="error" class="ma-2" v-model="unameError" dismissible>
+						Failed to update
+					</v-alert>
+					<v-alert type="success" class="ma-2" v-model="unameSuccess" dismissible>
+						Successfully updated
+					</v-alert>
+					<v-card-actions>
+						<v-btn color="primary" @click.stop="updateUname()"
+							:disabled="!confForm" :loading="unameLoading">Update</v-btn>
+					</v-card-actions>
+				</v-form>
+			</v-card>
+		</v-col>
+	</v-row>
+
+</v-container>

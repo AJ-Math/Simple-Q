@@ -1,0 +1,25 @@
+
+<v-container class="mt-15">
+	<v-row>
+		<v-col cols="6">
+			<p class="text-h4 mt-5">Queued Users
+				<v-tooltip bottom>
+					<template v-slot:activator="{ on, attrs }">
+					<v-icon large class="ml-3" color="blue darken-2" @click="print()"
+						v-bind="attrs" v-on="on">mdi-printer
+					</v-icon>
+					</template>
+					<span>Print all data</span>
+				</v-tooltip>
+			</p>
+		</v-col>
+		<v-col cols="6">
+			<v-text-field v-model="search" append-icon="mdi-magnify" label="Search"
+				single-line hide-details></v-text-field>
+		</v-col>
+	</v-row>
+						
+	
+	<v-data-table :headers="headers" :items="<%= data %>"
+		:sort-by.sync="sortBy" :search="search"></v-data-table>
+</v-container>
